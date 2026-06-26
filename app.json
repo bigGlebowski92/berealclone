@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.anonymous.YOYOREACL"
+      "bundleIdentifier": "com.anonymous.YOYOREACL",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "We need access to your photo library so you can choose photos to upload.",
+        "NSCameraUsageDescription": "We need access to your camera so you can take photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -26,6 +30,13 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "We need access to your photo library so you can choose photos to upload.",
+          "cameraPermission": "We need access to your camera so you can take photos."
+        }
+      ],
       [
         "expo-splash-screen",
         {
