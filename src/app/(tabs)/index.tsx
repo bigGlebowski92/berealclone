@@ -18,7 +18,7 @@ import { useState } from 'react';
 import { Image } from 'expo-image';
 import { Post, usePosts } from '@/hooks/usePosts';
 import { useAuth } from '@/context/authContext';
-// import { formatTimeAgo, formatTimeRemaining } from '@/lib/date-helper';
+import { formatTimeAgo, formatTimeRemaining } from '@/lib/date-helper';
 
 interface PostCardProps {
   post: Post;
@@ -50,14 +50,14 @@ const PostCard = ({ post, currentUserId }: PostCardProps) => {
             <Text style={styles.username}>
               {isOwnPost ? 'You' : `@${postUser?.username}`}
             </Text>
-            {/* <Text style={styles.timeAgo}>{formatTimeAgo(post.created_at)}</Text> */}
+            <Text style={styles.timeAgo}>{formatTimeAgo(post.created_at)}</Text>
           </View>
         </View>
 
         {/* Post content */}
         <View style={styles.timeRemainingBadge}>
           <Text style={styles.timeRemainingText}>
-            {/* {formatTimeRemaining(post.expires_at)} */}
+            {formatTimeRemaining(post.expires_at)}
           </Text>
         </View>
       </View>
@@ -75,7 +75,7 @@ const PostCard = ({ post, currentUserId }: PostCardProps) => {
         )}
         <Text style={styles.postInfo}>
           {isOwnPost ? 'Your Post' : `${postUser?.name}' post`} • Expires in{' '}
-          {/* {formatTimeRemaining(post.expires_at)} */}
+          {formatTimeRemaining(post.expires_at)}
         </Text>
       </View>
     </View>
